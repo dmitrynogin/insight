@@ -54,7 +54,7 @@ namespace SolutionConfiguration
         }
 
         public IEnumerator<string> GetEnumerator() => Assemblies.GetEnumerator(); 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator(); 
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();   
         IEnumerable<string> Assemblies => Projects
             .Select(p => { try { return p.Properties.Item("AssemblyName").Value as string; } catch { return ""; }})
             .Distinct().Where(a => !string.IsNullOrWhiteSpace(a));

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insight", "Insight\Insight.csproj", "{2089D5DF-F41F-4BE7-A5FB-B2EBF4183528}"
 EndProject
@@ -22,8 +22,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insight.Parsing.Matching", "Insight.Parsing.Matching\Insight.Parsing.Matching.csproj", "{D8E2F868-02FB-478F-92E5-8BDDAB4E5BE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.Csv", "Infra.Csv\Infra.Csv.csproj", "{0E990311-D8B4-41F0-AA22-232AE391A7FA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4B8CBDEA-8116-4B1C-889E-64FD0E72649D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,7 +72,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E3B83D68-C90C-4874-8E5F-DEC8D038BC7C} = {326DF7DF-DA95-441D-A6FF-A23B03778009}
 		{B2912389-DECE-49E8-AC69-2449198C71D4} = {326DF7DF-DA95-441D-A6FF-A23B03778009}
-		{A65F8E8F-62A1-4105-B8EE-4E0205C09FEB} = {4B8CBDEA-8116-4B1C-889E-64FD0E72649D}
-		{0E990311-D8B4-41F0-AA22-232AE391A7FA} = {4B8CBDEA-8116-4B1C-889E-64FD0E72649D}
 	EndGlobalSection
 EndGlobal
