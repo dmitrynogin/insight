@@ -11,7 +11,7 @@ namespace SolutionConfiguration
     public static class Solution  
     {
         static IEnumerable<string> AssemblyNames => new[] { 
-            "Insight", "Insight.Snowball", "Insight.Jobs", "Insight.Web", "Infra", "Insight.Parsing", "Insight.Parsing.Matching", "Infra.Csv"
+            "Insight", "Insight.Snowball", "Insight.Web", "Insight.Parsing", "Insight.Parsing.Matching"
         };  
 
         public static IEnumerable<Assembly> Assemblies => AssemblyNames 
