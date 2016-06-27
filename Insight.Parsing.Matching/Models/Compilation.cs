@@ -41,8 +41,8 @@ namespace Insight.Parsing.Matching.Models
                         case "|":
                             return "||";
                         default:
-                            if (t.StartsWith("<") && t.EndsWith(">"))
-                                return $"label(\"{t.Trim('<', '>')}\")";
+                            if (t.StartsWith("{") && t.EndsWith("}"))
+                                return $"label(\"{t.Trim('{', '}')}\")";
                             else
                                 return $"capture(\"{t}\")";
                     }
