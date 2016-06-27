@@ -103,6 +103,7 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\FormatterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ParsingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

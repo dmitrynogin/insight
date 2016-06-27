@@ -21,7 +21,10 @@ namespace Insight.Web.Controllers
 
         [HttpGet]
         [Route]
-        public void Get() { }
+        public string Get()
+        {
+            return "OK";
+        }
 
         [HttpPost]
         [Route("{p1?}/{p2?}/{p3?}/{p4?}/{p5?}")]
