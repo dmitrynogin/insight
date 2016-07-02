@@ -145,6 +145,10 @@
       <Project>{a65f8e8f-62a1-4105-b8ee-4e0205c09feb}</Project>
       <Name>Infra</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Insight.Parsing.Classifiers\Insight.Parsing.Classifiers.csproj">
+      <Project>{29be8ddb-9507-4b77-961e-9a51fdbb8da4}</Project>
+      <Name>Insight.Parsing.Classifiers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Insight.Parsing.Matching\Insight.Parsing.Matching.csproj">
       <Project>{d8e2f868-02fb-478f-92e5-8bddab4e5be9}</Project>
       <Name>Insight.Parsing.Matching</Name>

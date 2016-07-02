@@ -7,11 +7,11 @@ using System.Reflection;
 using System.Diagnostics;
 
 namespace SolutionConfiguration
-{
+{ 
     public static class Solution  
     {
         static IEnumerable<string> AssemblyNames => new[] { 
-            "Insight", "Insight.Snowball", "Insight.Web", "Infra", "Insight.Parsing", "Insight.Parsing.Matching", "Infra.Csv"
+            "Insight", "Insight.Snowball", "Insight.Web", "Infra", "Insight.Parsing", "Insight.Parsing.Matching", "Infra.Csv", "Insight.Parsing.Classifiers"
         };  
 
         public static IEnumerable<Assembly> Assemblies => AssemblyNames 
