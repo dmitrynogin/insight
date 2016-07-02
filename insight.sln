@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insight.Parsing.Classifiers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.SharpZipLib", "Infra.SharpZipLib\Infra.SharpZipLib.csproj", "{2B5FE84F-9392-4E72-8C4B-28A5F3D59B10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.AccordNet", "Infra.AccordNet\Infra.AccordNet.csproj", "{C9D85FC7-B0C4-4F4D-B45A-4D56CEF2EA81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{2B5FE84F-9392-4E72-8C4B-28A5F3D59B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B5FE84F-9392-4E72-8C4B-28A5F3D59B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B5FE84F-9392-4E72-8C4B-28A5F3D59B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D85FC7-B0C4-4F4D-B45A-4D56CEF2EA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D85FC7-B0C4-4F4D-B45A-4D56CEF2EA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D85FC7-B0C4-4F4D-B45A-4D56CEF2EA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D85FC7-B0C4-4F4D-B45A-4D56CEF2EA81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

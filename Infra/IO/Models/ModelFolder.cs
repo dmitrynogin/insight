@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Infra.IO.Readers.Tabular;
 using Infra.ComponentModel;
 using Infra.Attributes;
+using Infra.MachineLearning;
 
 namespace Infra.IO.Models
 {
@@ -16,11 +17,12 @@ namespace Infra.IO.Models
     [IoC]
     public class ModelFolder : Enumerable<FileName>, IModelFolder
     {
-        public ModelFolder(IFolder folder, CsvReaderFactory csvReader, ZipFactory zip)
+        public ModelFolder(IFolder folder, CsvReaderFactory csvReader, ZipFactory zip, SvmFactory svm)
         {
             Folder = folder;
             CsvReader = csvReader;
             Zip = zip;
+            Svm = svm;
         }
 
         public override IEnumerator<FileName> GetEnumerator() =>
@@ -33,10 +35,14 @@ namespace Infra.IO.Models
             Folder.OpenRead(fileName);
 
         public IModelFolder OpenZip(FileName fileName) =>
-            new ModelFolder(Zip(OpenRead(fileName)), CsvReader, Zip);
-        
+            new ModelFolder(Zip(OpenRead(fileName)), CsvReader, Zip, Svm);
+
+        public ISvm OpenSvm(FileName fileName) =>
+            Svm(OpenRead(fileName));
+
         IFolder Folder { get; }
         CsvReaderFactory CsvReader { get; }
         ZipFactory Zip { get; }
+        SvmFactory Svm { get; }
     }
 }

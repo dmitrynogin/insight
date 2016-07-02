@@ -137,6 +137,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infra.AccordNet\Infra.AccordNet.csproj">
+      <Project>{c9d85fc7-b0c4-4f4d-b45a-4d56cef2ea81}</Project>
+      <Name>Infra.AccordNet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infra.Csv\Infra.Csv.csproj">
       <Project>{0e990311-d8b4-41f0-aa22-232ae391a7fa}</Project>
       <Name>Infra.Csv</Name>

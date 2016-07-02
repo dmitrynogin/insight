@@ -56,8 +56,6 @@
     <Compile Include="IO\Models\IModelFolder.cs" />
     <Compile Include="IO\Models\ModelFolder.cs" />
     <Compile Include="IO\IZip.cs" />
-    <Compile Include="MachineLearning\Classification.cs" />
-    <Compile Include="MachineLearning\IClassifierReader.cs" />
     <Compile Include="IO\Readers\Tabular\ICsvReader.cs" />
     <Compile Include="IO\Readers\Tabular\ITabularReader.cs" />
     <Compile Include="IO\Readers\Tabular\TabularReader.cs" />
@@ -68,8 +66,7 @@
     <Compile Include="IO\IStorage.cs" />
     <Compile Include="IO\Models\ModelStorage.cs" />
     <Compile Include="MachineLearning\Class.cs" />
-    <Compile Include="MachineLearning\IClassifier.cs" />
-    <Compile Include="MachineLearning\ITrainer.cs" />
+    <Compile Include="MachineLearning\ISvm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sets\Intersection{T}.cs" />
     <Compile Include="Sets\Set{T}.cs" />
