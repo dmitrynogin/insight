@@ -16,22 +16,27 @@ namespace Infra.IO.Models
     [IoC]
     public class ModelFolder : Enumerable<FileName>, IModelFolder
     {
-        public ModelFolder(IFolder folder, CsvReaderFactory csvReader)
+        public ModelFolder(IFolder folder, CsvReaderFactory csvReader, ZipFactory zip)
         {
             Folder = folder;
             CsvReader = csvReader;
+            Zip = zip;
         }
 
         public override IEnumerator<FileName> GetEnumerator() =>
             Folder.GetEnumerator();
 
         public ITabularReader OpenCsv(FileName fileName) =>
-            CsvReader(OpenText(fileName));
+            CsvReader(Folder.OpenText(fileName));
 
-        public TextReader OpenText(FileName fileName) =>
-            Folder.OpenText(fileName);
+        public Stream OpenRead(FileName fileName) =>
+            Folder.OpenRead(fileName);
 
+        public IModelFolder OpenZip(FileName fileName) =>
+            new ModelFolder(Zip(OpenRead(fileName)), CsvReader, Zip);
+        
         IFolder Folder { get; }
         CsvReaderFactory CsvReader { get; }
+        ZipFactory Zip { get; }
     }
 }

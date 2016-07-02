@@ -10,5 +10,6 @@ namespace Infra.IO.Models
     public interface IModelFolder : IFolder
     {
         ITabularReader OpenCsv(FileName fileName);
+        IModelFolder OpenZip(FileName fileName);
     }
 }

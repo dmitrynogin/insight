@@ -22,11 +22,11 @@ namespace Infra.IO
                 .Distinct()
                 .GetEnumerator();
 
-        public TextReader OpenText(FileName fileName) =>
+        public Stream OpenRead(FileName fileName) =>
             Folders
-                .Select(f => f.OpenText(fileName))
-                .Where(r => r != TextReader.Null)
-                .DefaultIfEmpty(TextReader.Null)                
+                .Select(f => f.OpenRead(fileName))
+                .Where(s => s != Stream.Null)
+                .DefaultIfEmpty(Stream.Null)
                 .First();
 
         IEnumerable<IFolder> Folders { get; }

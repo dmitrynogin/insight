@@ -141,6 +141,10 @@
       <Project>{0e990311-d8b4-41f0-aa22-232ae391a7fa}</Project>
       <Name>Infra.Csv</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infra.SharpZipLib\Infra.SharpZipLib.csproj">
+      <Project>{2b5fe84f-9392-4e72-8c4b-28a5f3d59b10}</Project>
+      <Name>Infra.SharpZipLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infra\Infra.csproj">
       <Project>{a65f8e8f-62a1-4105-b8ee-4e0205c09feb}</Project>
       <Name>Infra</Name>

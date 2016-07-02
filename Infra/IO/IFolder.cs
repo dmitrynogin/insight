@@ -9,6 +9,12 @@ namespace Infra.IO
 {
     public interface IFolder : IEnumerable<FileName>
     {
-        TextReader OpenText(FileName fileName);
+        Stream OpenRead(FileName fileName);        
+    }
+
+    public static class Folder
+    {
+        public static TextReader OpenText(this IFolder folder, FileName fileName) =>
+            new StreamReader(folder.OpenRead(fileName));
     }
 }

@@ -20,10 +20,10 @@ namespace Infra.IO.Local
             Path = path;
         }
 
-        public TextReader OpenText(FileName fileName) =>
+        public Stream OpenRead(FileName fileName) =>
             Exists(Combine(Path, fileName)) ?
-                File.OpenText(Combine(Path, fileName)) :
-                TextReader.Null;
+                File.OpenRead(Combine(Path, fileName)) :
+                Stream.Null;
 
         public override IEnumerator<FileName> GetEnumerator() =>
             Directory.GetFiles(Path)
