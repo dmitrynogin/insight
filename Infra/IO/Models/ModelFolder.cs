@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Infra.IO.Readers.Tabular;
-using Infra.ComponentModel;
 using Infra.Attributes;
 using Infra.MachineLearning;
 

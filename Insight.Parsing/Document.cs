@@ -7,27 +7,24 @@ using System.Threading.Tasks;
 
 namespace Insight.Parsing
 {
-    public class Document
+    public class Document : Enumerable<Word>
     {
-        public Document(string text, IStemmer stemmer, Dictionary dictionary)
-            : this(text, text.StemText(stemmer), dictionary)
+        public Document(string text, IStemmer stemmer)
+            : this(text, text.StemText(stemmer))
         {
         }
 
-        public Document(string text, IList<Word> words, Dictionary dictionary)
-            : this(text, words, dictionary.Vectorize(words))
-        {
-        }
-
-        public Document(string text, IList<Word> words, IList<double> vector)
+        public Document(string text, IEnumerable<Word> words)
         {
             Text = text;
-            Words = new ReadOnlyCollection<Word>(words);
-            Vector = new ReadOnlyCollection<double>(vector);
+            Words = words;
         }
 
         public string Text { get; }
-        public IReadOnlyList<Word> Words { get; }
-        public IReadOnlyList<double> Vector { get; }
+
+        public override IEnumerator<Word> GetEnumerator() => 
+            Words.GetEnumerator();
+
+        IEnumerable<Word> Words { get; }
     }
 }

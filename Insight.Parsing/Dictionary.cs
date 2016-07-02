@@ -1,5 +1,4 @@
-﻿using Infra.ComponentModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,7 +18,7 @@ namespace Insight.Parsing
                 .ToDictionary(x => x.i, x => x.t);
         }
 
-        public double[] Vectorize(IList<Word> words)
+        public double[] Vectorize(IEnumerable<Word> words)
         {
             var vector = new double[Indecies.Count];
             foreach (var word in words.Select(w => w.Stemmed))
@@ -29,9 +28,10 @@ namespace Insight.Parsing
                     vector[index]++;
             }
 
-            if(words.Count != 0)
+            var wordCount = words.Count();
+            if (wordCount > 0)
                 for (int i = 0; i < vector.Length; i++)
-                    vector[i] /= words.Count;
+                    vector[i] /= wordCount;
 
             return vector;
         }

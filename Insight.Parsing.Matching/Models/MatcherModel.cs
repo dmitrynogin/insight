@@ -1,5 +1,4 @@
 ﻿using Infra.Attributes;
-using Infra.ComponentModel;
 using Infra.IO;
 using Infra.IO.Models;
 using System;
@@ -25,7 +24,7 @@ namespace Insight.Parsing.Matching.Models
                 yield return new PatternGroup(fileName.Name, Load(fileName));
         }
 
-        public IEnumerable<Pattern> Load(FileName fileName)
+        IEnumerable<Pattern> Load(FileName fileName)
         {
             using (var reader = Folder.OpenCsv(fileName))
                 while (reader.Read())

@@ -23,7 +23,7 @@ namespace Insight.Parsing.Matching
         public bool Test(Document document)
         {
             var k = Keywords.GetEnumerator();
-            var w = document.Words.GetEnumerator();
+            var w = document.GetEnumerator();
 
             if (!k.MoveNext())
                 return true;

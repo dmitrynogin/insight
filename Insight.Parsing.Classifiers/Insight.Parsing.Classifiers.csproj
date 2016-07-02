@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classifier.cs" />
+    <Compile Include="Models\ClassifierModel.cs" />
+    <Compile Include="Models\MachineGroup.cs" />
+    <Compile Include="Models\IClassifierModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

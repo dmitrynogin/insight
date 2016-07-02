@@ -1,5 +1,4 @@
-﻿using Infra.ComponentModel;
-using Insight.Parsing.Matching.Models;
+﻿using Insight.Parsing.Matching.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

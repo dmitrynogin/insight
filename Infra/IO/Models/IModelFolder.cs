@@ -1,4 +1,5 @@
 ﻿using Infra.IO.Readers.Tabular;
+using Infra.MachineLearning;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Infra.IO.Models
     {
         ITabularReader OpenCsv(FileName fileName);
         IModelFolder OpenZip(FileName fileName);
+        ISvm OpenSvm(FileName fileName);
     }
 }

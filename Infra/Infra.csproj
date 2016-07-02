@@ -48,6 +48,7 @@
     <Compile Include="Comparers\InvertedComparer{T}.cs" />
     <Compile Include="Comparers\TestComparer{T}.cs" />
     <Compile Include="ComponentModel\Enumerable.cs" />
+    <Compile Include="ComponentModel\LineReader.cs" />
     <Compile Include="ComponentModel\ValueObject.cs" />
     <Compile Include="IO\FileName.cs" />
     <Compile Include="IO\FlatFolder.cs" />

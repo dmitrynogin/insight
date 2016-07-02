@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infra.ComponentModel
+namespace System.Collections.Generic
 {
     public abstract class Enumerable<T> : IEnumerable<T>
     {

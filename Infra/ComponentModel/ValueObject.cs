@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infra.ComponentModel
+namespace Infra
 {
     public abstract class ValueObject<T> : IEquatable<ValueObject<T>>
         where T : ValueObject<T>

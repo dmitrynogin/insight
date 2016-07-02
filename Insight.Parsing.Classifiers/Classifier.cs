@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Infra.Attributes;
+using Insight.Parsing.Classifiers.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +8,22 @@ using System.Threading.Tasks;
 
 namespace Insight.Parsing.Classifiers
 {
-    public abstract class Classifier : ILabeler
+    [IoC]
+    public class Classifier : ILabeler
     {
-        public Classifier()
+        public Classifier(IClassifierModel model)
         {
-
+            Machines = model.ToArray();
         }
 
         public IEnumerable<LabelGroup> Label(Document document)
         {
-            throw new NotImplementedException();
+            foreach (var machine in Machines)
+                yield return new LabelGroup(
+                    machine.Name,
+                    machine.Label(document));
         }
+
+        IEnumerable<MachineGroup> Machines { get; }
     }
 }
