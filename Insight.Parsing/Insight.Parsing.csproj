@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dictionary.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="ILabeler.cs" />
     <Compile Include="IModelSelector.cs" />

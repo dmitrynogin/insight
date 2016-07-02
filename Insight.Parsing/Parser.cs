@@ -18,7 +18,7 @@ namespace Insight.Parsing
 
         public IEnumerable<LabelGroup> Parse(string text)
         {
-            var document = new Document(text, Stemmer);
+            var document = new Document(text, Stemmer, Dictionary.Empty);
             return Labelers
                 .SelectMany(l => l.Label(document));
         }

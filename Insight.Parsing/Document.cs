@@ -9,21 +9,25 @@ namespace Insight.Parsing
 {
     public class Document
     {
-        public Document(string text, IStemmer stemmer)
-            : this(text, text.StemText(stemmer), new byte[0])
+        public Document(string text, IStemmer stemmer, Dictionary dictionary)
+            : this(text, text.StemText(stemmer), dictionary)
         {
-
         }
 
-        public Document(string text, IList<Word> words, IList<byte> vector)
+        public Document(string text, IList<Word> words, Dictionary dictionary)
+            : this(text, words, dictionary.Vectorize(words))
+        {
+        }
+
+        public Document(string text, IList<Word> words, IList<double> vector)
         {
             Text = text;
             Words = new ReadOnlyCollection<Word>(words);
-            Vector = new ReadOnlyCollection<byte>(vector);
+            Vector = new ReadOnlyCollection<double>(vector);
         }
 
         public string Text { get; }
         public IReadOnlyList<Word> Words { get; }
-        public IReadOnlyList<byte> Vector { get; }
+        public IReadOnlyList<double> Vector { get; }
     }
 }
