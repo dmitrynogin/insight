@@ -27,6 +27,12 @@ namespace train
     {
         static void Main(string[] args)
         {
+            if(args.Length != 1)
+            {
+                WriteLine("Usage:\n\n\ttrain.exe <folder path>");
+                return;
+            }
+
             var stemmer = new SnowballStemmer();
             using (var zip = new ZipOutputStream(
                 OpenWrite(
