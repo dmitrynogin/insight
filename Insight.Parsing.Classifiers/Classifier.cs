@@ -16,13 +16,8 @@ namespace Insight.Parsing.Classifiers
             Machines = model.ToArray();
         }
 
-        public IEnumerable<LabelGroup> Label(Document document)
-        {
-            foreach (var machine in Machines)
-                yield return new LabelGroup(
-                    machine.Name,
-                    machine.Label(document));
-        }
+        public IEnumerable<LabelGroup> Label(Document document) =>
+            Machines.SelectMany(g => g.Label(document));
 
         IEnumerable<MachineGroup> Machines { get; }
     }

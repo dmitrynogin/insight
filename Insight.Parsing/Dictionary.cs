@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,12 @@ namespace Insight.Parsing
                     vector[i] /= wordCount;
 
             return vector;
+        }
+
+        public void WriteTo(TextWriter writer)
+        {
+            foreach (var word in Indecies.Keys)
+                writer.WriteLine(word);
         }
 
         Dictionary<string, int> Indecies { get; }

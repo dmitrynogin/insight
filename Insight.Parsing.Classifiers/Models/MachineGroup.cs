@@ -12,38 +12,32 @@ namespace Insight.Parsing.Classifiers.Models
 {
     public class MachineGroup
     {
-        public MachineGroup(FileName name, IModelFolder folder)
-            : this(name,
-                  folder.OpenText("labels.txt").ReadAllLines(), 
-                  folder.OpenText("dictionary.txt").ReadAllLines(), 
+        public MachineGroup(IModelFolder folder)
+            : this(                  
+                  folder.OpenText("dic.txt").ReadAllLines(), 
                   folder
                     .Where(f => f.Extension == ".svm")
-                    .ToDictionary(f => f.Name, f => folder.OpenSvm(f)))
+                    .Select(f => new Machine(
+                        f.Name, 
+                        folder.OpenText(f.Name + ".txt").ReadAllLines(), 
+                        folder.OpenSvm(f))))
         {
         }
 
-        public MachineGroup(string name, IEnumerable<string> labels, IEnumerable<string> words, IDictionary<string, ISvm> svms)
+        public MachineGroup(IEnumerable<string> words, IEnumerable<Machine> machines)
         {
-            Name = name;
-            Labels = labels.ToList().AsReadOnly();
             Dictionary = new Dictionary(words);
-            Svms = svms;
+            Machines = machines;
         }
 
-        public string Name { get; }
-
-        public IEnumerable<Label> Label(Document document)
+        public IEnumerable<LabelGroup> Label(Document document)
         {
-            var x = Dictionary.Vectorize(document);
-            foreach (var kvp in Svms)
-            {
-                var c = kvp.Value.Classify(x);
-                yield return new Label(Labels[c.Number], c.Score);
-            }
+            var input = Dictionary.Vectorize(document);
+            return Machines.Select(m => 
+                new LabelGroup(m.Name, m.Label(input)));                
         }
         
-        IReadOnlyList<string> Labels { get; }
         Dictionary Dictionary { get; }
-        IDictionary<string, ISvm> Svms { get; }
+        IEnumerable<Machine> Machines { get; }
     }
 }

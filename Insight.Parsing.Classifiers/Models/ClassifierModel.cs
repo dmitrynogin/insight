@@ -19,8 +19,8 @@ namespace Insight.Parsing.Classifiers.Models
 
         public override IEnumerator<MachineGroup> GetEnumerator()
         {
-            foreach (var fileName in Folder.Where(fn => fn.Extension == ".cls"))
-                yield return new MachineGroup(fileName, Folder.OpenZip(fileName.Name));
+            foreach (var fileName in Folder.Where(fn => fn.Extension == ".cl"))
+                yield return new MachineGroup(Folder.OpenZip(fileName));
         }
 
         IModelFolder Folder { get; }
