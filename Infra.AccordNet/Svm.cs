@@ -18,10 +18,16 @@ namespace Infra.AccordNet
             Machine = MulticlassSupportVectorMachine.Load(stream);
         }
 
-        public Class Classify(double[] input)
-        {
-            double score;
-            return new Class(Machine.Compute(input, out score), score);
+        public IList<Class> Classify(double[] input, double min, int top)
+        {            
+            var scores = new double[Machine.Classes];
+            Machine.Compute(input, out scores);
+            return scores
+                .Select((s, n) => new Class(n, s))
+                .OrderByDescending(c => c.Score)
+                .Where(c => c.Score >= min)
+                .Take(top)
+                .ToArray();               
         }
 
         MulticlassSupportVectorMachine Machine { get; }

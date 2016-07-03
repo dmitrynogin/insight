@@ -21,6 +21,10 @@ namespace Infra.IO
         public string Name => Path.GetFileNameWithoutExtension(Text);
         public string Extension => Path.GetExtension(Text);
         public string Text { get; }
+
+        public FileName ChangeExtension(string extension) => 
+            Path.ChangeExtension(Text, extension);
+
         protected override IEnumerable<object> EqualityCheckAttributes => new[] { Text };
     }
 }

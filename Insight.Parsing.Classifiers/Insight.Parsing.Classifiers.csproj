@@ -46,6 +46,7 @@
     <Compile Include="Models\Machine.cs" />
     <Compile Include="Models\MachineGroup.cs" />
     <Compile Include="Models\IClassifierModel.cs" />
+    <Compile Include="Models\Mangling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

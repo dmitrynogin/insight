@@ -11,6 +11,6 @@ namespace Infra.MachineLearning
 
     public interface ISvm
     {
-        Class Classify(double[] input);
+        IList<Class> Classify(double[] input, double min = 0, int top = int.MaxValue);
     }
 }

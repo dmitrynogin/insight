@@ -16,10 +16,11 @@ namespace Insight.Parsing.Classifiers.Models
             : this(                  
                   folder.OpenText("dic.txt").ReadAllLines(), 
                   folder
-                    .Where(f => f.Extension == ".svm")
+                    .Select(f => new MangledName(f))
+                    .Where(f => f.Extension == ".svm")                    
                     .Select(f => new Machine(
-                        f.Name, 
-                        folder.OpenText(f.Name + ".txt").ReadAllLines(), 
+                        f,
+                        folder.OpenText(f.Unmangled.ChangeExtension(".txt")).ReadAllLines(), 
                         folder.OpenSvm(f))))
         {
         }
