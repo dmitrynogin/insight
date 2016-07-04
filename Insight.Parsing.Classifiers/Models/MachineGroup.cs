@@ -20,7 +20,7 @@ namespace Insight.Parsing.Classifiers.Models
                     .Where(f => f.Extension == ".svm")                    
                     .Select(f => new Machine(
                         f,
-                        folder.OpenText(f.Unmangled.ChangeExtension(".txt")).ReadAllLines(), 
+                        folder.OpenText(f.ChangeExtension(".txt")).ReadAllLines(), 
                         folder.OpenSvm(f))))
         {
         }
