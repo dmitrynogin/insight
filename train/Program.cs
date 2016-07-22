@@ -33,6 +33,8 @@ namespace train
                 return;
             }
 
+            WriteLine("Platform: " + IntPtr.Size);
+
             var stemmer = new SnowballStemmer();
             using (var zip = new ZipOutputStream(
                 OpenWrite(
@@ -85,8 +87,11 @@ namespace train
                     var teacher = new MulticlassSupportVectorLearning(machine, input, classifier.Output);
                     teacher.Algorithm = (svm, classInputs, classOutputs, i, j) =>
                     {
-                        var sequentialMinimalOptimization = new SequentialMinimalOptimization(svm, classInputs, classOutputs);
-                        sequentialMinimalOptimization.Run();
+                        //var sequentialMinimalOptimization = new SequentialMinimalOptimization(svm, classInputs, classOutputs);
+                        //sequentialMinimalOptimization.Run();
+                        var linearCoordinateDescent = new LinearCoordinateDescent(svm, classInputs, classOutputs);
+                        linearCoordinateDescent.Run();
+
                         var probabilisticOutputLearning = new ProbabilisticOutputCalibration(svm, classInputs, classOutputs);
                         return probabilisticOutputLearning;
                     };                    
