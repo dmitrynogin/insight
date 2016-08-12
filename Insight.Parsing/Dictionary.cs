@@ -19,13 +19,15 @@ namespace Insight.Parsing
                 .ToDictionary(x => x.i, x => x.t);
         }
 
+        public int Length => Indecies.Count;
+
         public double[] Vectorize(IEnumerable<Word> words)
         {
             var vector = new double[Indecies.Count];
-            foreach (var word in words.Select(w => w.Stemmed))
+            foreach (var word in words)
             {
-                int index;
-                if(Indecies.TryGetValue(word, out index))
+                int index;                
+                if (Indecies.TryGetValue(word.Stemmed, out index) || Indecies.TryGetValue(word.Nonstemmed, out index))
                     vector[index]++;
             }
 

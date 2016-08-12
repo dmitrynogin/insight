@@ -42,20 +42,24 @@ namespace train
                         GetDirectoryName(args[0]),
                         GetFileName(args[0]) + ".cl"))))
             {
+                WriteLine("Reading dictionary...");
+                var dicPath = Combine(args[0], "dic.txt");
+                var dicText = File.Exists(dicPath) ? ReadAllLines(dicPath) : new string[0];
 
                 WriteLine("Building dictionary...");
                 var text = ReadAllLines(Combine(args[0], "text.txt"));
-                var dic = new Dictionary(text
+
+                var dic = new Dictionary(dicText.Concat(text
                     .SelectMany(jd => jd.StemText(stemmer))
                     .ToLookup(w => w.Stemmed)
                     .Select(l => new { Stemmed = l.Key, Count = l.Count() })
                     .OrderByDescending(w => w.Count)
-                    .Select(w => w.Stemmed)
-                    .Take(5000)
+                    .Select(w => w.Stemmed))
+                    .Take(5000)    
                     .ToArray());
 
                 zip.PutNextEntry(new ZipEntry("dic.txt"));
-                using (var writer = new StreamWriter(zip, Encoding.UTF8, 4096, true))
+                using (var writer = new StreamWriter(zip, UTF8, 4096, true))
                     dic.WriteTo(writer);
                 zip.CloseEntry();
 
@@ -65,7 +69,7 @@ namespace train
                     input[i] = dic.Vectorize(new Document(text[i], stemmer));
 
                 var classifiers = from f in GetFiles(args[0])
-                                  where GetFileName(f) != "text.txt"
+                                  where GetFileName(f) != "text.txt" && GetFileName(f) != "dic.txt"
                                   where GetExtension(f) == ".txt"
                                   let ll = ReadAllLines(f)
                                   let ld = ll.Distinct().ToArray()
